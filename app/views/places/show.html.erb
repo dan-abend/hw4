@@ -15,7 +15,7 @@
 
 <div class="row">
   <% for post in @place.posts.where({user_id: @current_user.id}) %>
-  <div class="col-sm-3">
+  <div class="col-sm-4">
       <h5 class=text-info><%= post.title %></h5>
       <h6><%= post.posted_on %></h6>
  
