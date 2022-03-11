@@ -1,19 +1,28 @@
-<h1><%= @place.name %></h1>
+<div class="container-fluid">
+<h1 class="pt-7"><%= @place.name %></h1>
 
+
+<div class="row">
 <% if @current_user %>
-<h2>My Posts</h2>
+<h5 class=text-info>My Posts</h5>
 <% for post in @place.posts.where({user_id: @current_user.id}) %>
   <h3><%= post.title %></h3>
   <h4><%= post.posted_on %></h4>
   <p><%= post.description %></p>
 <% end %>
+</div>
 
-<p>
+<div class="row">
+<div class="col-sm-3">
   <a href="/posts/new?place_id=<%= @place.id %>">New Post</a>
-</p>
+</div>
+</div>
 
-<p>
+<div class="row">
+<div class="col-sm-3">
   <a href="/places">Back to All Places</a>
-</p>
+</div>
+</div>
 
 <% end %>
+</div>
