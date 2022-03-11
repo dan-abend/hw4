@@ -4,24 +4,28 @@ class SessionsController < ApplicationController
 
   def create
     entered_email = params["email"]
-    enetered_password = params["password"]
+    entered_password = params["password"]
 
+    @user = User.where({ email: entered_email })[0]
     if @user
-      if BCrypt::Password.new(@user.password) == enetered_password
-        session["user_id"] = @user.id
-
+      if BCrypt::Password.new(@user.password) == entered_password
+        session[:user_id] = @user.id
         flash[:notice] = "Welcome!"
         redirect_to "/places"
       else 
         flash[:notice] = "Password is incorrect"
         redirect_to "/sessions/new"
       end 
-  else
+    else
       flash[:notice] = "No user with that email address"
       redirect_to "/sessions/new"
   end
+end 
 
   def destroy
+      session[:user_id] = nil
+      flash[:notice] = "You have been logged out"
+      redirect_to "/sessions/new"
   end
 end
   
