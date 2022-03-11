@@ -1,6 +1,7 @@
 <div class="container-fluid">
 <h1 class="pt-7"><%= @place.name %></h1>
 
+<% if @current_user %>
 <p>
 <div class="row">
   <div class="col-sm-3">
@@ -8,8 +9,6 @@
   </div>
 </div>
 </p>
-
-<% if @current_user %>
 
 <p>
 
