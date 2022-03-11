@@ -8,7 +8,7 @@
     <%= csp_meta_tag %>
   </head>
 
-  <body>
+  <body class="pt-2">
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">Travel Journal</a>
@@ -24,7 +24,7 @@
 
         <ul class="navbar-nav mb-2 mb-lg-0">
          <% if @current_user %>
-            <li class="nav-item">Logged in as: <%= @current_user.username %></li>
+            <li class="nav-item">Logged in as: <%= @current_user.username %></li> 
             <li class="nav-item"><%= button_to "Logout", "/sessions/logout", method: :delete, class: "nav-link" %></li>
           <% else %>
             <li class="nav-item"><a href="/sessions/new" class="nav-link">Login</a></li>
